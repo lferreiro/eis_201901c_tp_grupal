@@ -22,7 +22,7 @@ Nro | Nombre | Legajo | Mail
     
 ### Entrega
 
-24 / 5 / 2019
+26 / 5 / 2019
 
 ## Descripción del Problema
 
