@@ -70,6 +70,7 @@ Programación orientada a objetos + ATDD
 1. Implementar CI en el primer o segundo commit.
 2. Completar el README.md.
 3. **SEPA que no habrá reentrega ni entregas tardías**
+4. Verificar que el comando ejecutado por el CI **efectivamente** corre las pruebas.
 
 
 [1]: https://travis-ci.org/
