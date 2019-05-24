@@ -12,5 +12,6 @@
     <orderEntry type="library" scope="TEST" name="Gradle: io.cucumber:cucumber-junit:2.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.cucumber:cucumber-core:2.4.0" level="project" />
     <orderEntry type="module" module-name="main" scope="TEST" />
+    <orderEntry type="module" module-name="eis_201801c_tp_grupal_main" scope="TEST" />
   </component>
 </module>
