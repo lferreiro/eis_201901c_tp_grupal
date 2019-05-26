@@ -2,8 +2,10 @@
 .classpath
 .settings
 .project
+.idea
 .idea/
 .idea\
 .gradle/
 .gradle\
 /build/
+out/
