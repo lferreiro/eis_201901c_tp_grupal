@@ -22,13 +22,13 @@ public class Edificador {
         Posicion posicionActual;
         int posX = pos1.getX();
 
-        if (pos1.getY()<pos2.getY()) {  //Sube
-            for (int posY = pos1.getY(); posY<pos2.getY(); posY++) {
+        if (pos1.getY()<= pos2.getY()) {  //Sube
+            for (int posY = pos1.getY(); posY<=pos2.getY(); posY++) {
                 posicionActual = new Posicion(posX,posY);
                 this.mapa.crearPared(posicionActual);
             }
         } else {    //Baja
-            for (int posY = pos1.getY(); posY>pos2.getY(); posY--) {
+            for (int posY = pos1.getY(); posY >= pos2.getY(); posY--) {
                 posicionActual = new Posicion(posX,posY);
                 this.mapa.crearPared(posicionActual);
             }
@@ -40,13 +40,13 @@ public class Edificador {
         Posicion posicionActual;
         int posY = pos1.getY();
 
-        if (pos1.getX()<pos2.getX()) {  //Sube
-            for (int posX = pos1.getX(); posX<pos2.getX(); posX++) {
+        if (pos1.getX()<=pos2.getX()) {  //Sube
+            for (int posX = pos1.getX(); posX<=pos2.getX(); posX++) {
                 posicionActual = new Posicion(posX,posY);
                 this.mapa.crearPared(posicionActual);
             }
         } else {    //Baja
-            for (int posX = pos1.getX(); posX>pos2.getX(); posX--) {
+            for (int posX = pos1.getX(); posX>=pos2.getX(); posX--) {
                 posicionActual = new Posicion(posX,posY);
                 this.mapa.crearPared(posicionActual);
             }

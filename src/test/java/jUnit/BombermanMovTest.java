@@ -55,7 +55,7 @@ public class BombermanMovTest {
         assertEquals(new Pair<>(1, 1), controlador.getBomberman().getPoisicion().getCoordenada());
 
         posicion.setCoordenada(new Pair<>(2, 1));
-        celda.setContenido(new Pared());
+        celda.setContenido(new ParedMelamina());
         controlador.getMapa().setCelda(posicion, celda);
 
         controlador.moverEnDireccion(DERECHA);

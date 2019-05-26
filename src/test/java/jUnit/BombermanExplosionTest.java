@@ -25,15 +25,51 @@ public class BombermanExplosionTest {
 
     @Test
     public void testBombermanPoneUnaBombaEnUnaCeldaConUnaParedYLaExplota() {
-        celda.setContenido(new Pared());
+        celda.setContenido(new ParedMelamina());
         posicion.setCoordenada(new Pair<>(1, 0));
         controlador.getMapa().setCelda(posicion, celda);
         Celda celdaExplotada = controlador.getMapa().getCelda(posicion);
 
-        assertTrue(celdaExplotada.getContenido() instanceof Pared);
+        assertTrue(celdaExplotada.getContenido() instanceof ParedMelamina);
 
         controlador.sembrarBomba();
 
         assertTrue(celdaExplotada.getContenido() instanceof ContenidoVacio);
     }
+
+    @Test
+    public void testBombermanPoneBombaYExplotanEnemigoYPared(){
+
+        celda.setContenido(new Enemigo());
+        posicion.setCoordenada(new Pair<>(2, 2));
+        controlador.getMapa().setCelda(posicion, celda);
+        Celda celdaEnPosicionx1y0 = controlador.getMapa().getCelda(new Posicion(1,0));
+        Celda celdaExplotada = controlador.getMapa().getCelda(posicion);
+
+        assertTrue(celdaEnPosicionx1y0.getContenido() instanceof ParedMelamina);
+        assertTrue(celdaExplotada.getContenido() instanceof Enemigo);
+
+        controlador.sembrarBomba();
+
+        assertTrue(celdaEnPosicionx1y0.getContenido() instanceof ContenidoVacio);
+        assertTrue(celdaExplotada.getContenido() instanceof ContenidoVacio);
+
+    }
+
+    @Test
+    public void hayUnaParedDeAceroEnRangoDeExplosionPeroQuedaIntacta(){
+
+        celda.setContenido(new ParedAcero());
+        posicion.setCoordenada(new Pair<>(1, 0));
+        controlador.getMapa().setCelda(posicion, celda);
+        Celda celdaExplotada = controlador.getMapa().getCelda(posicion);
+
+        assertTrue(celdaExplotada.getContenido() instanceof ParedAcero);
+
+        controlador.sembrarBomba();
+
+        assertTrue(celdaExplotada.getContenido() instanceof ParedAcero);
+
+    }
+
 }

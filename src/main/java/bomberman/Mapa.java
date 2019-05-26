@@ -44,4 +44,5 @@ public class Mapa {
     public Integer getTamanio() {
         return this.tamanio;
     }
+
 }
