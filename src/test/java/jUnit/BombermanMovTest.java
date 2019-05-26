@@ -64,4 +64,17 @@ public class BombermanMovTest {
 
     }
 
+    @Test
+    public void testBombermanSeMuereCuandoHayUnEnemigo() {
+        posicion.setCoordenada(new Pair<>(1, 0));
+        celda.setContenido(new Enemigo());
+        controlador.getMapa().setCelda(posicion, celda);
+
+        controlador.moverEnDireccion(DERECHA);
+
+        assertEquals(new Pair<>(1, 0), controlador.getBomberman().getPoisicion().getCoordenada());
+        assertFalse(controlador.getBomberman().getEstaVivo());
+
+    }
+
 }

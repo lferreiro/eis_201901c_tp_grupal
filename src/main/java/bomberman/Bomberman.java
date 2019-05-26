@@ -2,10 +2,12 @@ package bomberman;
 
 public class Bomberman {
 
-    Posicion posicion;
+    private Posicion posicion;
+    private Boolean estaVivo;
 
     public Bomberman(){
         this.posicion = new Posicion(0,0);
+        this.estaVivo = true;
     }
 
     public void setPosicion(Posicion posicion){
@@ -16,22 +18,20 @@ public class Bomberman {
     public Posicion getPoisicion(){ return this.posicion;}
 
     public void moverBomberman(Posicion posicion){
-        this.setPosicion(posicion);
-//        Integer x = this.posicion.getX();
-//        Integer y = this.posicion.getY();
-//        switch(direccion){
-//            case ARRIBA:
-//                this.setPosicion(x, y + 1);
-//                break;
-//            case ABAJO:
-//                this.setPosicion(x, y - 1);
-//                break;
-//            case DERECHA:
-//                this.setPosicion(x + 1, y);
-//                break;
-//            case IZQUIERDA:
-//                this.setPosicion(x - 1, y);
-//                break;
-//        }
+        if(estaVivo) {
+            this.setPosicion(posicion);
+        }
+    }
+
+    public void morir() {
+        this.estaVivo = false;
+    }
+
+    public Boolean getEstaVivo() {
+        return this.estaVivo;
+    }
+
+    public void ponerBomba(Celda celda) {
+        celda.setContenido(new Bomba());
     }
 }
