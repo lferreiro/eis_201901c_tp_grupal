@@ -9,13 +9,22 @@ import java.util.Map;
 public class Mapa {
 
     private Map<Pair<Integer, Integer>, Celda> celdas = new HashMap<>();
+    private Edificador edificador;
+    private Integer tamanio;
 
     public Mapa(int tamanio){
-        for (int fila = 0; fila < tamanio; fila++){
-            for(int columna = 0; columna < tamanio; columna ++){
+        this.tamanio = tamanio;
+        for (int fila = 0; fila <= tamanio; fila++){
+            for(int columna = 0; columna <= tamanio; columna ++){
                 this.celdas.put(new Posicion(fila, columna).getCoordenada(), new Celda());
             }
         }
+        this.edificador = new Edificador(this, tamanio);
+        this.edificador.cubrirBordes();
+    }
+
+    public void crearPared(Posicion posicion) {
+        getCelda(posicion).setContenido(new ParedMelamina());
     }
 
     public Celda getCelda(Posicion posicion){
@@ -31,4 +40,8 @@ public class Mapa {
     }
 
     public Collection<Celda> getCeldas() {return this.celdas.values();}
+
+    public Integer getTamanio() {
+        return this.tamanio;
+    }
 }

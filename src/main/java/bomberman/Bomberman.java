@@ -6,7 +6,7 @@ public class Bomberman {
     private Boolean estaVivo;
 
     public Bomberman(){
-        this.posicion = new Posicion(0,0);
+        this.posicion = new Posicion(1,1);
         this.estaVivo = true;
     }
 

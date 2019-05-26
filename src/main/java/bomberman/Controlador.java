@@ -58,10 +58,15 @@ public class Controlador {
         Integer radx = posx + 3;
         Integer rady = posy + 3;
 
-        for (int fila = posx; fila < radx; fila++) {
-            for (int columna = posy; columna < rady; columna++) {
-                this.mapa.getCelda(new Posicion(fila, columna)).explotarContenido();
+        for (int fila = posx - 3; fila < radx; fila++) {
+            for (int columna = posy - 3; columna < rady; columna++) {
+                if(columna >= 0 && columna < this.mapa.getTamanio() && fila >= 0 && fila < this.mapa.getTamanio()) {
+                    this.mapa.getCelda(new Posicion(fila, columna)).explotarContenido();
+                }
             }
         }
+
+
+
     }
 }
