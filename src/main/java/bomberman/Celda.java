@@ -5,7 +5,7 @@ public class Celda {
     private Contenido contenido;
 
     public Celda(){
-        this.contenido = null;
+        this.contenido = new ContenidoVacio();
     }
 
     public void setContenido(Contenido contenido){
@@ -17,4 +17,6 @@ public class Celda {
     }
 
     public void vaciarContenido(){ this.contenido = null; }
+
+
 }

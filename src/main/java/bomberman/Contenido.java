@@ -1,4 +1,6 @@
 package bomberman;
 
-public class Contenido {
+public abstract class Contenido {
+    public abstract Boolean esCaminable();
+
 }

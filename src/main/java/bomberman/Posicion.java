@@ -22,4 +22,31 @@ public class Posicion {
         return this.coordenada;
     }
 
+    public void setCoordenada(Pair<Integer, Integer> coordenada) {
+        this.coordenada = coordenada;
+    }
+
+    public Posicion nextPosicion (Direccion direccion){
+
+        Integer x = this.getX();
+        Integer y = this.getY();
+        switch(direccion){
+            case ARRIBA:
+                y = (y + 1);
+                break;
+            case ABAJO:
+                y = y - 1;
+                break;
+            case DERECHA:
+                x = x + 1;
+                break;
+            case IZQUIERDA:
+                x = x - 1;
+                break;
+        }
+
+        return new Posicion(x, y);
+
+    }
+
 }
