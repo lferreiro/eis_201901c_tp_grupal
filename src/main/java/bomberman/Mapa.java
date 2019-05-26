@@ -12,8 +12,8 @@ public class Mapa {
     private Edificador edificador;
 
     public Mapa(int tamanio){
-        for (int fila = 0; fila < tamanio; fila++){
-            for(int columna = 0; columna < tamanio; columna ++){
+        for (int fila = 0; fila <= tamanio; fila++){
+            for(int columna = 0; columna <= tamanio; columna ++){
                 this.celdas.put(new Posicion(fila, columna).getCoordenada(), new Celda());
             }
         }
