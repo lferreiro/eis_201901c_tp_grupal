@@ -5,7 +5,7 @@ public class Bomberman {
     Posicion posicion;
 
     public Bomberman(){
-        this.posicion = new Posicion(0,0);
+        this.posicion = new Posicion(1,1);
     }
 
     public void setPosicion(Posicion posicion){

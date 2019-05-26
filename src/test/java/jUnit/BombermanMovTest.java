@@ -17,9 +17,9 @@ public class BombermanMovTest {
     @Before
     public void setUp() {
         controlador = new Controlador(5);
-        coordenada = new Pair<>(0, 0);
+        coordenada = new Pair<>(1, 1);
         celda = new Celda();
-        posicion = new Posicion(0, 0);
+        posicion = new Posicion(1, 1);
     }
 
 
@@ -31,7 +31,7 @@ public class BombermanMovTest {
         controlador.moverEnDireccion(DERECHA);
 
         Pair<Integer, Integer> coordenadaNueva;
-        coordenadaNueva = new Pair<>(1, 0);
+        coordenadaNueva = new Pair<>(2, 1);
 
         Bomberman bombermanTest = controlador.getBomberman();
         assertEquals(coordenadaNueva, bombermanTest.getPoisicion().getCoordenada());
@@ -41,26 +41,26 @@ public class BombermanMovTest {
 
     @Test
     public void testBombermanCambiaSuPosicionAUnaCeldaVacia() {
-        assertEquals(new Pair<>(0, 0), controlador.getBomberman().getPoisicion().getCoordenada());
+        assertEquals(new Pair<>(1, 1), controlador.getBomberman().getPoisicion().getCoordenada());
 
-        posicion.setCoordenada(new Pair<>(1, 0));
+        posicion.setCoordenada(new Pair<>(2, 1));
         controlador.moverEnDireccion(DERECHA);
 
-        assertEquals(new Pair<>(1, 0), controlador.getBomberman().getPoisicion().getCoordenada());
+        assertEquals(new Pair<>(2, 1), controlador.getBomberman().getPoisicion().getCoordenada());
        assertTrue(controlador.getMapa().getCelda(controlador.getBomberman().getPoisicion()).getContenido() instanceof ContenidoVacio) ;
     }
 
     @Test
     public void testBombermanNoCambiaSuPosicionPorqueLaCeldaNoEstaVacia() {
-        assertEquals(new Pair<>(0, 0), controlador.getBomberman().getPoisicion().getCoordenada());
+        assertEquals(new Pair<>(1, 1), controlador.getBomberman().getPoisicion().getCoordenada());
 
-        posicion.setCoordenada(new Pair<>(1, 0));
+        posicion.setCoordenada(new Pair<>(2, 1));
         celda.setContenido(new Pared());
         controlador.getMapa().setCelda(posicion, celda);
 
         controlador.moverEnDireccion(DERECHA);
 
-        assertEquals(new Pair<>(0, 0), controlador.getBomberman().getPoisicion().getCoordenada());
+        assertEquals(new Pair<>(1, 1), controlador.getBomberman().getPoisicion().getCoordenada());
 
     }
 
