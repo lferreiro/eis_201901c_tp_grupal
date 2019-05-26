@@ -9,6 +9,7 @@ import java.util.Map;
 public class Mapa {
 
     private Map<Pair<Integer, Integer>, Celda> celdas = new HashMap<>();
+    private Edificador edificador;
 
     public Mapa(int tamanio){
         for (int fila = 0; fila < tamanio; fila++){
@@ -16,6 +17,12 @@ public class Mapa {
                 this.celdas.put(new Posicion(fila, columna).getCoordenada(), new Celda());
             }
         }
+        this.edificador = new Edificador(this, tamanio);
+        this.edificador.cubrirBordes();
+    }
+
+    public void crearPared(Posicion posicion) {
+        getCelda(posicion).setContenido(new ParedMelamina());
     }
 
     public Celda getCelda(Posicion posicion){
