@@ -19,20 +19,15 @@ public class Controlador {
 
         if(celda.getContenido().esCaminable()) {
             this.bomberman.moverBomberman(posicionFinal.nextPosicion(direccion));
-
-//        Pair<Integer, Integer> coordenadaInicial = new Pair<>(0, 0);
-//        coordenadaInicial = this.bomberman.posicion.getCoordenada();
-//        Posicion posicionInicial = new Posicion(0,0);
-//        posicionInicial.setCoordenada(coordenadaInicial);
-//        Posicion posicionFinal = new Posicion(0,0);
-//        posicionFinal.cambiarPosicion(posicionInicial, direccion);
-//
-//        Celda celda = this.mapa.getCelda(posicionFinal);
-//
-//        if(celda.getEstaVacia()) {
-//            this.bomberman.moverBomberman(direccion);
+            verificarEnemigo(celda);
         }
 
+    }
+
+    public void verificarEnemigo(Celda celda) {
+        if(celda.getContenido() instanceof Enemigo) {
+            this.bomberman.morir();
+        }
     }
 
     public Mapa getMapa(){ return this.mapa ;}
@@ -41,5 +36,37 @@ public class Controlador {
 
     public void setBomberman(Bomberman bomberman) {
         this.bomberman = bomberman;
+    }
+
+    public void sembrarBomba() {
+        Integer tick = 3;
+        Posicion posicionBomberman = this.bomberman.getPoisicion();
+        Celda celda = this.mapa.getCelda(posicionBomberman);
+
+        this.bomberman.ponerBomba(celda);
+
+        while (tick > 0) {
+            tick--;
+        }
+        this.explotarBomba(posicionBomberman);
+    }
+
+
+    public void explotarBomba(Posicion posicion) {
+        Integer posx = posicion.getX();
+        Integer posy = posicion.getY();
+        Integer radx = posx + 3;
+        Integer rady = posy + 3;
+
+        for (int fila = posx - 3; fila < radx; fila++) {
+            for (int columna = posy - 3; columna < rady; columna++) {
+                if(columna >= 0 && columna < this.mapa.getTamanio() && fila >= 0 && fila < this.mapa.getTamanio()) {
+                    this.mapa.getCelda(new Posicion(fila, columna)).explotarContenido();
+                }
+            }
+        }
+
+
+
     }
 }

@@ -18,5 +18,9 @@ public class Celda {
 
     public void vaciarContenido(){ this.contenido = null; }
 
+    public void explotarContenido() {
+        this.contenido = this.getContenido().explotar();
+    }
+
 
 }

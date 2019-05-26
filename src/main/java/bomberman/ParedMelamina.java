@@ -4,6 +4,11 @@ public class ParedMelamina extends Contenido {
 
     @Override
     public Boolean esCaminable() {
-        return true;
+        return false;
+    }
+
+    @Override
+    public Contenido explotar() {
+        return new ContenidoVacio();
     }
 }

@@ -1,15 +1,12 @@
 package bomberman;
 
-public class Pared extends Contenido {
-
+public class Enemigo extends Contenido {
     public Boolean esCaminable() {
-        return false;
+        return true;
     }
 
+    @Override
     public Contenido explotar() {
-        return new ContenidoVacio();
+        return null;
     }
-
-
-
 }
