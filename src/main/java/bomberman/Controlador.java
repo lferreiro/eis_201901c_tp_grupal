@@ -14,14 +14,16 @@ public class Controlador {
     }
 
     public void moverEnDireccion(Direccion direccion){
-        Posicion posicionFinal = this.bomberman.getPoisicion();
+        Posicion posicionFinal = this.bomberman.getPoisicion().nextPosicion(direccion,1,this.getMapa());
 
         Celda celda = this.mapa.getCelda(posicionFinal.nextPosicion(direccion, 1, this.getMapa()));
 
-        if(celda.getContenido().esCaminable()) {
-            this.bomberman.moverBomberman(posicionFinal.nextPosicion(direccion, 1 , this.getMapa()));
+        this.bomberman.moverBomberman(posicionFinal, direccion);
+        this.verificarEnemigo(celda);
+        /*if(celda.getContenido().esCaminable()) {
+            this.bomberman.moverBomberman(posicionFinal.nextPosicion(direccion, 1, this.getMapa()));
             verificarEnemigo(celda);
-        }
+        }*/
 
     }
 

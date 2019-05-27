@@ -40,7 +40,7 @@ public class BombermanExplosionTest {
     @Test
     public void testBombermanPoneBombaYExplotanEnemigoYPared(){
 
-        celda.setContenido(new Enemigo());
+        celda.setContenido(new Enemigo(controlador.getBomberman()));
         posicion.setCoordenada(new Pair<>(2, 2));
         controlador.getMapa().setCelda(posicion, celda);
         Celda celdaEnPosicionx1y0 = controlador.getMapa().getCelda(new Posicion(1,0));
@@ -86,6 +86,11 @@ public class BombermanExplosionTest {
 
         assertTrue(celdaExplotada.getContenido() instanceof ContenidoVacio);
         assertTrue(controlador.getBomberman().getPoder() instanceof PoderLanzar);
+    }
+
+    @Test
+    public void testBombermanMataAProtoMaxJrConUnaBombaYObtienePoderParaSaltarParedes() {
+        celda.setContenido(new ProtoMaxJr(controlador.getBomberman()));
     }
 
 }

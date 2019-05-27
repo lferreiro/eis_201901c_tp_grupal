@@ -67,7 +67,7 @@ public class BombermanMovTest {
     @Test
     public void testBombermanSeMuereCuandoHayUnEnemigo() {
         posicion.setCoordenada(new Pair<>(2, 1));
-        celda.setContenido(new Enemigo());
+        celda.setContenido(new Enemigo(controlador.getBomberman()));
         controlador.getMapa().setCelda(posicion, celda);
 
         controlador.moverEnDireccion(DERECHA);

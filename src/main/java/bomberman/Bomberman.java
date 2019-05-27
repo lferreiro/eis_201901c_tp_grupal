@@ -10,7 +10,7 @@ public class Bomberman {
     public Bomberman(){
         this.posicion = new Posicion(1,1);
         this.estaVivo = true;
-        this.poder = new Poder();
+        this.poder = new Poder(this);
     }
 
     public void setPosicion(Posicion posicion){
@@ -20,9 +20,9 @@ public class Bomberman {
 
     public Posicion getPoisicion(){ return this.posicion;}
 
-    public void moverBomberman(Posicion posicion){
+    public void moverBomberman(Posicion posicion, Direccion direccion){
         if(estaVivo) {
-            this.setPosicion(posicion);
+            this.poder.mover(posicion, this.mapa, direccion);
         }
     }
 
