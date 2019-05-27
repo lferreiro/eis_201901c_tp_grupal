@@ -26,6 +26,12 @@ public class Bomberman {
         }
     }
 
+    public void verificarEnemigo(Celda celda) {
+        if(celda.getContenido() instanceof Enemigo) {
+            this.morir();
+        }
+    }
+
     public void morir() {
         this.estaVivo = false;
     }

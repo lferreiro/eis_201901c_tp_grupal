@@ -16,6 +16,7 @@ public class Poder {
         Celda celda = mapa.getCelda(posicion);
         if (celda.getContenido().esCaminable()) {
             this.bomberman.setPosicion(posicion);
+            this.bomberman.verificarEnemigo(celda);
         }
     }
 

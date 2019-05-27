@@ -13,12 +13,12 @@ tEjercitar la escritura de código en ambientes colaborativos utilizando una met
 
 ### Integrantes
 
-Nro | Nombre | Legajo | Mail
-----|--------|--------|------
-1   |        |        |
-2   |        |        |
-3   |        |        |
-4   |        |        |
+Nro | Nombre              | Legajo | Mail
+----|---------------------|--------|------
+1   |  Ferreiro Luciano   |  32435 |luciano.ferreiro95@gmail.com
+2   |  Bada Miguel        |  30465 |miguelenriquebada07@gmail.com
+3   |  Amoruso Luciano    |  34907 |luchisonico@gmail.com
+
     
 ### Entrega
 

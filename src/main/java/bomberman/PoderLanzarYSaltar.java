@@ -1,10 +1,7 @@
 package bomberman;
 
-import javafx.geometry.Pos;
-
-public class PoderSaltar extends Poder {
-
-    public PoderSaltar(Bomberman bomberman) {
+public class PoderLanzarYSaltar extends Poder {
+    public PoderLanzarYSaltar(Bomberman bomberman) {
         super(bomberman);
     }
 
@@ -19,5 +16,11 @@ public class PoderSaltar extends Poder {
         }
         this.bomberman.verificarEnemigo(celda);
     }
+
+    @Override
+    public void lanzarBomba(Celda celdaOrigen, Celda celdaDestino){ //bomberman lanza la bomba a 3 casilleros de donde el se encuentra. Si el rango supera el limte la bomba se pone en la posicion actual de bomberman.
+        celdaDestino.setContenido(new Bomba());
+    }
+
 
 }

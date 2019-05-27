@@ -19,19 +19,9 @@ public class Controlador {
         Celda celda = this.mapa.getCelda(posicionFinal.nextPosicion(direccion, 1, this.getMapa()));
 
         this.bomberman.moverBomberman(posicionFinal, direccion);
-        this.verificarEnemigo(celda);
-        /*if(celda.getContenido().esCaminable()) {
-            this.bomberman.moverBomberman(posicionFinal.nextPosicion(direccion, 1, this.getMapa()));
-            verificarEnemigo(celda);
-        }*/
 
     }
 
-    public void verificarEnemigo(Celda celda) {
-        if(celda.getContenido() instanceof Enemigo) {
-            this.bomberman.morir();
-        }
-    }
 
     public Mapa getMapa(){ return this.mapa ;}
 

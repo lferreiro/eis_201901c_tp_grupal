@@ -7,6 +7,6 @@ public class ContenidoVacio extends Contenido {
 
     @Override
     public Contenido explotar() {
-        return null;
+        return new ContenidoVacio();
     }
 }
