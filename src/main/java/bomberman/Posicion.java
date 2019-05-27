@@ -4,21 +4,21 @@ import javafx.util.Pair;
 
 public class Posicion {
 
-    private Pair<Integer , Integer> coordenada;
+    private Pair<Integer, Integer> coordenada;
 
-    public Posicion(Integer x, Integer y){
-         this.coordenada = new Pair<>(x, y);
+    public Posicion(Integer x, Integer y) {
+        this.coordenada = new Pair<>(x, y);
     }
 
     public Integer getX() {
-       return coordenada.getKey();
+        return coordenada.getKey();
     }
 
     public Integer getY() {
         return coordenada.getValue();
     }
 
-    public Pair<Integer, Integer> getCoordenada(){
+    public Pair<Integer, Integer> getCoordenada() {
         return this.coordenada;
     }
 
@@ -26,27 +26,37 @@ public class Posicion {
         this.coordenada = coordenada;
     }
 
-    public Posicion nextPosicion (Direccion direccion){
+    public Posicion nextPosicion(Direccion direccion, int n, Mapa mapa) {
 
         Integer x = this.getX();
         Integer y = this.getY();
-        switch(direccion){
+        int tamanioDelMapa = mapa.getTamanio();
+        switch (direccion) {
             case ARRIBA:
-                y = (y + 1);
-                break;
+                if(y+n <= tamanioDelMapa) {
+                    y = (y + n);
+                    break;
+                }
             case ABAJO:
-                y = y - 1;
-                break;
+                if(y-n >= 0) {
+                    y = y - n;
+                    break;
+                }
             case DERECHA:
-                x = x + 1;
-                break;
+                if(x+n <= tamanioDelMapa) {
+                    x = x + n;
+                    break;
+                }
             case IZQUIERDA:
-                x = x - 1;
-                break;
+                if(x-n >= 0) {
+                    x = x - n;
+                    break;
+                }
         }
-
-        return new Posicion(x, y);
+        return new Posicion(x,y);
 
     }
+
+
 
 }

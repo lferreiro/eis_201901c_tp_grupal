@@ -32,7 +32,7 @@ public class BombermanExplosionTest {
 
         assertTrue(celdaExplotada.getContenido() instanceof ParedMelamina);
 
-        controlador.sembrarBomba();
+        controlador.sembrarBomba(Direccion.ARRIBA);
 
         assertTrue(celdaExplotada.getContenido() instanceof ContenidoVacio);
     }
@@ -49,7 +49,7 @@ public class BombermanExplosionTest {
         assertTrue(celdaEnPosicionx1y0.getContenido() instanceof ParedMelamina);
         assertTrue(celdaExplotada.getContenido() instanceof Enemigo);
 
-        controlador.sembrarBomba();
+        controlador.sembrarBomba(Direccion.ARRIBA);
 
         assertTrue(celdaEnPosicionx1y0.getContenido() instanceof ContenidoVacio);
         assertTrue(celdaExplotada.getContenido() instanceof ContenidoVacio);
@@ -66,10 +66,26 @@ public class BombermanExplosionTest {
 
         assertTrue(celdaExplotada.getContenido() instanceof ParedAcero);
 
-        controlador.sembrarBomba();
+        controlador.sembrarBomba(Direccion.ARRIBA);
 
         assertTrue(celdaExplotada.getContenido() instanceof ParedAcero);
 
+    }
+
+    @Test
+    public void testBombermanMataABagulaaConUnaBombaYTieneElPoderNuevo(){
+        celda.setContenido(new Bagulaa(controlador.getBomberman()));
+        posicion.setCoordenada(new Pair<>(3, 1));
+        controlador.getMapa().setCelda(posicion, celda);
+        Celda celdaExplotada = controlador.getMapa().getCelda(posicion);
+
+        assertTrue(celdaExplotada.getContenido() instanceof Bagulaa);
+        assertTrue(controlador.getBomberman().getPoder() instanceof Poder);
+
+        controlador.sembrarBomba(Direccion.ARRIBA);
+
+        assertTrue(celdaExplotada.getContenido() instanceof ContenidoVacio);
+        assertTrue(controlador.getBomberman().getPoder() instanceof PoderLanzar);
     }
 
 }

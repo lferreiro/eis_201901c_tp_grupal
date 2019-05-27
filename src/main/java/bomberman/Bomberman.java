@@ -4,10 +4,13 @@ public class Bomberman {
 
     private Posicion posicion;
     private Boolean estaVivo;
+    private Poder poder;
+    private Mapa mapa;
 
     public Bomberman(){
         this.posicion = new Posicion(1,1);
         this.estaVivo = true;
+        this.poder = new Poder();
     }
 
     public void setPosicion(Posicion posicion){
@@ -31,7 +34,32 @@ public class Bomberman {
         return this.estaVivo;
     }
 
-    public void ponerBomba(Celda celda) {
-        celda.setContenido(new Bomba());
+    public void ponerBomba(Direccion direccion) {
+        Celda celdaActual = mapa.getCelda(this.getPoisicion());
+        Celda celdaDestino = this.calcularCeldaDestino(direccion);
+        this.poder.lanzarBomba(celdaActual, celdaDestino);
     }
+
+    public void setPoder(Poder poder){
+        this.poder = poder;
+    }
+
+    public Poder getPoder(){
+        return this.poder;
+    }
+
+    public void setMapa(Mapa mapa){
+        this.mapa = mapa;
+    }
+
+    public Mapa getMapa(){
+        return this.mapa;
+    }
+
+    public Celda calcularCeldaDestino(Direccion direccion){
+        Posicion posicionAPlantar = this.posicion.nextPosicion(direccion, 3, this.getMapa());
+        Celda celdaDestino = this.getMapa().getCelda(posicionAPlantar);
+        return celdaDestino;
+    }
+
 }

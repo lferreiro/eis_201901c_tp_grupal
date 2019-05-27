@@ -1,7 +1,12 @@
 package bomberman;
 
 public class Enemigo extends Contenido {
-    @Override
+
+    private Bomberman bomberman;
+
+    public Enemigo(){
+    }
+
     public Boolean esCaminable() {
         return true;
     }
@@ -10,4 +15,5 @@ public class Enemigo extends Contenido {
     public Contenido explotar() {
         return new ContenidoVacio();
     }
+
 }

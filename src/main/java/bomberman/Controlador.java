@@ -10,15 +10,16 @@ public class Controlador {
     public Controlador(int tamanioMapa){
         this.mapa = new Mapa(tamanioMapa);
         this.bomberman = new Bomberman();
+        this.bomberman.setMapa(this.mapa);
     }
 
     public void moverEnDireccion(Direccion direccion){
         Posicion posicionFinal = this.bomberman.getPoisicion();
 
-        Celda celda = this.mapa.getCelda(posicionFinal.nextPosicion(direccion));
+        Celda celda = this.mapa.getCelda(posicionFinal.nextPosicion(direccion, 1, this.getMapa()));
 
         if(celda.getContenido().esCaminable()) {
-            this.bomberman.moverBomberman(posicionFinal.nextPosicion(direccion));
+            this.bomberman.moverBomberman(posicionFinal.nextPosicion(direccion, 1 , this.getMapa()));
             verificarEnemigo(celda);
         }
 
@@ -38,12 +39,12 @@ public class Controlador {
         this.bomberman = bomberman;
     }
 
-    public void sembrarBomba() {
+    public void sembrarBomba(Direccion direccion) {
         Integer tick = 3;
         Posicion posicionBomberman = this.bomberman.getPoisicion();
         Celda celda = this.mapa.getCelda(posicionBomberman);
 
-        this.bomberman.ponerBomba(celda);
+        this.bomberman.ponerBomba(direccion);
 
         while (tick > 0) {
             tick--;
